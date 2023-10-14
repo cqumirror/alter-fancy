@@ -1,0 +1,44 @@
+a {
+    color: #1ccb4c;
+    text-decoration: none;
+}
+#navbar {
+    background-color: transparent;
+    color: #384452;
+    /*display: inline-block;*/
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 5vh;
+    padding: 0;
+    text-decoration: none;
+}
+#brand {
+    padding-left: 8vw;
+    font-size: 20px;
+    color: #384452;
+}
+.nav-item {
+    font-size: 15px;
+    margin-left: 5px
+}
+#mirror-footer {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+#mirror-footer-content {
+    display: flex;
+    margin: 5vh 6vw;
+    padding: 1vh 2vw;
+    font-size: .9em;
+}
+
+#icon-mail,#icon-github {
+    height: 1em;
+}
+.contact-list-item {
+    height: 20px;
+    line-height: 20px;
+    align-items: center;
+}
