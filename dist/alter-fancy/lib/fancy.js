@@ -6,13 +6,14 @@ $(document).ready(function() {
         var o = t.text().replaceAll("Index of",'')
         var os = o.split('/')
         var b = '<ol class="breadcrumb">\n' +
-            '<li class="breadcrumb-item">Home</li>\n'
+            '<li class="breadcrumb-item"><a href="/#/">Home</a></li>\n'
         for (var i = 1; i < os.length; i++) {
             if (i == os.length-1) {
                 b = b + '<li class="breadcrumb-item active">' + os[i] + '</li>\n' +
                     '</ol>'
             } else {
-                b = b + '<li class="breadcrumb-item">' + os[i] + '</li>\n'
+                ll = o.split(os[i])
+                b = b + '<li class="breadcrumb-item"><a href="' + ll[0] + os[i] + '">' + os[i] + '</a></li>\n'
             }
         }
         t.replaceWith(b)
@@ -56,21 +57,21 @@ $(document).ready(function() {
                       </tr>
                     `
                 } if (p.length == 2) {
-		    var re = /(<a[^>]*>)([^<]*)(<\/a>)\s*(\d{1,2}-[A-Za-z]{3}-\d{4} \d{1,2}:\d{2})/
-		    var m = p[0].match(re)
-		    var l = m[1] + m[2] +m [3]
-		    l = l.replaceAll('&gt;','')
-		    var d = m[4]
-		    var s = formatBytes(Number(p[1]))
-		    return `
-		      <tr>
-			<td>${l}</td>
-			<td>${s}</td>
-			<td class="text-right">${d}</td>
-		      </tr>
-		    `
+                    var re = /(<a[^>]*>)([^<]*)(<\/a>)\s*(\d{1,2}-[A-Za-z]{3}-\d{4} \d{1,2}:\d{2})/
+                    var m = p[0].match(re)
+                    var l = m[1] + m[2] +m [3]
+                    l = l.replaceAll('&gt;','')
+                    var d = m[4]
+                    var s = formatBytes(Number(p[1]))
+                    return `
+                      <tr>
+                        <td>${l}</td>
+                        <td>${s}</td>
+                        <td class="text-right">${d}</td>
+                      </tr>
+                    `
 
-		} else {
+                } else {
                     return `
                         <tr>
                           <td><a href="../">Parent Directory</a></td>
